@@ -12,7 +12,7 @@ now = datetime.datetime.now()
 
 def StartupProgram():
     os.system('cls')
-    print("Welcome to Mail Louisville IMB Scanner")
+    print("Welcome to IMB Scanner")
     time.sleep(3)
     os.system('cls')
     DriveSelect()
@@ -45,8 +45,8 @@ def UnzipFiles():
     def archive1():
         global number_files
         global filecounter
-        new_dr = str(drive) + "MAIL DAT EXPORTS/READY FOR MAIL DAT SCAN CHECK"
-        filelist = os.listdir(new_dr) # dir is your directory path
+        new_dr = str(drive) + "MAIL DAT EXPORTS/READY FOR MAIL DAT SCAN CHECK"  #insert path to zips
+        filelist = os.listdir(new_dr) 
         number_files = len(filelist)
         number_files = int(number_files)
         
@@ -108,10 +108,10 @@ def ScannerStartpoint():
     searchstring = b
     for fname in os.listdir('.'):
         if fname.endswith(extensions):
-            #print(str(len(fname)))    # change directory as needed
-            if os.path.isfile(fname):    # make sure it's a file, not a directory entry
-                with open(fname) as f:   # open file
-                    for line in f:       # process line by line
+            #print(str(len(fname)))    
+            if os.path.isfile(fname):    
+                with open(fname) as f:   
+                    for line in f:       
                         if str(b) in line:
                             global success_alert
                             success_alert = str(fname)
